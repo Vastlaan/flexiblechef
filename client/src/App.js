@@ -10,6 +10,7 @@ import Services from "./components/services";
 import Reviews from "./components/reviews";
 import Footer from "./components/footer";
 import Cookies from "./components/cookies";
+import WhatsApp from "./components/whatsApp";
 import SEO from "./components/SEO";
 import { lightTheme, darkTheme, respond } from "./styles";
 import { RiHeartsLine, RiMoneyEuroCircleLine } from "react-icons/ri";
@@ -83,6 +84,7 @@ function App() {
                     </Intersection>
 
                     <Footer />
+                    <WhatsApp />
                     {store.cookies.display ? <Cookies /> : null}
                 </Main>
             </ThemeProvider>

@@ -166,7 +166,7 @@ const Text = styled.p`
     text-align: center;
 `;
 const Button = styled.button`
-    width: 40%;
+    width: 60%;
     background-color: transparent;
     border: 1px solid snow;
     padding: 1rem 3rem;
@@ -176,6 +176,8 @@ const Button = styled.button`
     letter-spacing: 0.2rem;
     cursor: pointer;
     transition: all 0.3s;
+
+    ${() => respond("s", "width: 40%")}
 
     &:hover {
         color: ${(props) => props.theme.footer};

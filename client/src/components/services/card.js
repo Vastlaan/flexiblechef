@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { BsCheckCircle } from "react-icons/bs";
 import { fonts, respond } from "../../styles";
@@ -24,9 +25,11 @@ export default function Card({ color, header, services, intl, children }) {
                     );
                 })}
             </List>
-            <Button color={color} onClick={() => scrollToFooter()}>
-                {intl.formatMessage({ id: "servicesButton" })}
-            </Button>
+            <Link to="/rentme">
+                <Button color={color}>
+                    {intl.formatMessage({ id: "servicesButton" })}
+                </Button>
+            </Link>
         </Main>
     );
 }

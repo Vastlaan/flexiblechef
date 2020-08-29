@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { fonts, respond } from "../../styles";
 import SwitchLang from "./switchLang";
@@ -7,7 +8,10 @@ import { RiSunLine, RiMoonLine } from "react-icons/ri";
 export default function Nav({ isDarkTheme, setIsDarkTheme }) {
     return (
         <Navigation>
-            <Name>Flexible Chef</Name>
+            <Link to="/" style={{ textDecoration: "none" }}>
+                <Name>Flexible Chef</Name>
+            </Link>
+
             <Options>
                 <SwitchLang />
                 <ToggleTheme
@@ -31,8 +35,8 @@ const Navigation = styled.nav`
     left: 0;
     width: 100%;
     background-color: ${(props) => props.theme.bg};
-
-    ${() => respond("m", "padding: 0rem 2rem;")}
+    border-bottom: 1px solid ${(props) => props.theme.grey};
+    ${() => respond("m", "padding: 0rem 2rem;")};
 `;
 
 const Name = styled.div`

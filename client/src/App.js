@@ -1,23 +1,21 @@
 import React, { useState, useContext } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useIntl } from "react-intl";
-import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { Context } from "./store";
+//components
+import SEO from "./components/SEO";
+import ScrollToTop from "./components/scrollToTop";
 import Nav from "./components/nav";
-import Header from "./components/header";
-import Intersection from "./components/intersection";
-import About from "./components/about";
-import Services from "./components/services";
-import Reviews from "./components/reviews";
+import Landing from "./components/landing";
+import Rent from "./components/rent";
 import Footer from "./components/footer";
 import Cookies from "./components/cookies";
-import WhatsApp from "./components/whatsApp";
-import SEO from "./components/SEO";
+//styles
 import { lightTheme, darkTheme, respond } from "./styles";
-import { RiHeartsLine, RiMoneyEuroCircleLine } from "react-icons/ri";
 
 function App() {
     const [isDarkTheme, setIsDarkTheme] = useState(false);
-
     const intl = useIntl();
     const { store, dispatch } = useContext(Context);
 
@@ -34,59 +32,21 @@ function App() {
             />
             <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
                 <GlobalStyles />
-                <Main>
-                    <BackgroundVideo>
-                        <video preload="auto" loop autoPlay>
-                            <source
-                                src="https://michalantczakblogresources.s3.eu-central-1.amazonaws.com/headerCompressed.mp4"
-                                type="video/mp4"
-                            />
-                        </video>
 
-                        <Nav
-                            isDarkTheme={isDarkTheme}
-                            setIsDarkTheme={setIsDarkTheme}
-                        />
-                        <Header />
-                    </BackgroundVideo>
-
-                    <About />
-
-                    <Intersection
-                        header={intl.formatMessage({
-                            id: "intersection1Header",
-                        })}
-                        text={intl.formatMessage({
-                            id: "intersection1Text",
-                        })}
-                        price={null}
-                    >
-                        <RiHeartsLine />
-                    </Intersection>
-
-                    <Services />
-
-                    <Reviews />
-
-                    <Intersection
-                        header={intl.formatMessage({
-                            id: "intersection2Header",
-                        })}
-                        text={intl.formatMessage({
-                            id: "intersection2Text",
-                        })}
-                        price={`18.95`}
-                        priceDetail={intl.formatMessage({
-                            id: "intersection2Price",
-                        })}
-                    >
-                        <RiMoneyEuroCircleLine color={"#2A9D8F"} />
-                    </Intersection>
-
+                <Router>
+                    <ScrollToTop />
+                    <Nav
+                        isDarkTheme={isDarkTheme}
+                        setIsDarkTheme={setIsDarkTheme}
+                    />
+                    <Switch>
+                        <Route exact={true} path="/" component={Landing} />
+                        <Route exact={true} path="/rentme" component={Rent} />
+                    </Switch>
                     <Footer />
-                    <WhatsApp />
-                    {store.cookies.display ? <Cookies /> : null}
-                </Main>
+                </Router>
+
+                {store.cookies.display ? <Cookies /> : null}
             </ThemeProvider>
         </div>
     );
@@ -121,29 +81,6 @@ const GlobalStyles = createGlobalStyle`
             transform: translate(0);
             opacity: 1;
         }
-    }
-`;
-const Main = styled.div`
-    width: 100%;
-    overflow-x: hidden;
-`;
-const BackgroundVideo = styled.div`
-    position: relative;
-    overflow: hidden;
-    height: 75vh;
-    width: 100%;
-
-    video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        object-fit: cover;
-        object-position: 50% 50%;
-        width: 100%;
-        height: 100%;
-
-        ${() => respond("m", `min-height: 100%; width: 100%;`)}
     }
 `;
 

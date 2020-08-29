@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useIntl } from "react-intl";
 import { fonts, respond } from "../../styles";
 import styled from "styled-components";
@@ -15,6 +16,14 @@ export default function Board() {
                     <GiFoodTruck />
                 </FoodTruck>
                 <Lower>{intl.formatMessage({ id: "headerSlogan2" })}</Lower>
+                <Link
+                    to="/rentme"
+                    style={{ textDecoration: "none", zIndex: 99 }}
+                >
+                    <Button>
+                        {intl.formatMessage({ id: "headerSloganBtn" })}
+                    </Button>
+                </Link>
             </Slogan>
             <Contact />
         </Head>
@@ -59,6 +68,30 @@ const Lower = styled.h1`
     font-weight: 400;
     z-index: 5;
     line-height: 2;
+`;
+const Button = styled.button`
+    align-self: flex-end;
+    float: right;
+    width: 20rem;
+    border: 1px solid transparent;
+    background-color: ${(props) => props.theme.warm};
+    font-size: 2rem;
+    padding: 1rem 3rem;
+    color: snow;
+    z-index: 9;
+    text-transform: uppercase;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 3px;
+
+    &:hover {
+        background-color: ${(props) => props.theme.tertiary};
+    }
+    &:focus,
+    :active {
+        outline: none;
+    }
 `;
 const FoodTruck = styled.div`
     position: absolute;

@@ -70,13 +70,14 @@ export default function Reviews() {
 const Container = styled.section`
     margin: 5rem auto;
     width: 100%;
-    padding: 5rem 2rem;
+    padding: 1rem 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     position: relative;
+    ${() => respond("s", "padding: 5rem 2rem;")}
 `;
 
 const BackgroundImage = styled.div`
@@ -95,12 +96,13 @@ const BackgroundImage = styled.div`
 `;
 const Header = styled.h3`
     font-family: ${fonts.baumans};
-    font-size: 4.5rem;
+    font-size: 4rem;
     font-weight: 500;
     color: ${(props) => props.theme.grey};
     text-transform: uppercase;
     letter-spacing: 0.2rem;
     text-align: center;
+    ${() => respond("s", "font-size: 4.5rem;")}
 `;
 
 const Quotes = styled.div`
@@ -113,7 +115,7 @@ const Quotes = styled.div`
 const Text = styled.div`
     width: 100%;
     position: absolute;
-    top: 20%;
+    top: 10%;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -121,6 +123,7 @@ const Text = styled.div`
     justify-content: center;
     transition: transform 0.5s;
     animation: slideFromRight 0.3s linear;
+    ${() => respond("s", "top:20%")}
 `;
 
 const QuoteLeft = styled.p`
@@ -136,18 +139,19 @@ const QuoteRight = styled.p`
     color: ${(props) => props.theme.grey};
 `;
 const Quote = styled.p`
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-family: ${fonts.rajdhani};
     font-weight: 700;
     letter-spacing: 0.2rem;
-    padding: 0 2rem;
+    padding: 0rem;
     color: ${(props) => props.theme.grey};
     text-align: center;
+    ${() => respond("s", "font-size: 3rem;padding: 0 2rem;")}
 `;
 const Text2 = styled.div`
     width: 100%;
     position: absolute;
-    top: 20%;
+    top: 10%;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -155,6 +159,7 @@ const Text2 = styled.div`
     justify-content: center;
     transition: transform 0.5s;
     animation: slideFromRight 0.3s linear;
+    ${() => respond("s", "top:20%")}
 `;
 
 const QuoteLeft2 = styled.p`
@@ -170,18 +175,19 @@ const QuoteRight2 = styled.p`
     color: ${(props) => props.theme.grey};
 `;
 const Quote2 = styled.p`
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-family: ${fonts.rajdhani};
     font-weight: 700;
     letter-spacing: 0.2rem;
-    padding: 0 2rem;
+    padding: 0rem;
     color: ${(props) => props.theme.grey};
     text-align: center;
+    ${() => respond("s", "font-size: 3rem;padding: 0 2rem;")}
 `;
 const Text3 = styled.div`
     width: 100%;
     position: absolute;
-    top: 20%;
+    top: 10%;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -189,6 +195,7 @@ const Text3 = styled.div`
     justify-content: center;
     transition: transform 0.5s;
     animation: slideFromRight 0.3s linear;
+    ${() => respond("s", "top:20%")}
 `;
 
 const QuoteLeft3 = styled.p`
@@ -204,11 +211,12 @@ const QuoteRight3 = styled.p`
     color: ${(props) => props.theme.grey};
 `;
 const Quote3 = styled.p`
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-family: ${fonts.rajdhani};
     font-weight: 700;
     letter-spacing: 0.2rem;
-    padding: 0 2rem;
+    padding: 0rem;
     color: ${(props) => props.theme.grey};
     text-align: center;
+    ${() => respond("s", "font-size: 3rem;padding: 0 2rem;")}
 `;

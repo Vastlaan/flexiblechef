@@ -2,22 +2,36 @@ import React from "react";
 import styled from "styled-components";
 import { respond, fonts } from "../../../styles";
 
-export default function Contact({ setName, setAddress, setEmail, setPhone }) {
+export default function Contact({
+    setName,
+    setAddress,
+    setEmail,
+    setPhone,
+    intl,
+}) {
     return (
         <Container>
-            <p style={{ fontSize: "3rem", color: "#2A9D8F" }}>Contact data:</p>
+            <p style={{ fontSize: "3rem", color: "#2A9D8F" }}>
+                {intl.formatMessage({ id: "rentContactHeader" })}
+            </p>
             <div>
-                <label htmlFor="name">Company Name:</label>
+                <label htmlFor="name2">
+                    {intl.formatMessage({ id: "rentConfirmationWorkplace" })}
+                </label>
                 <input
                     type="text"
-                    name="name"
+                    name="name2"
                     onChange={(e) => setName(e.target.value)}
                     required
                 />
             </div>
             <div>
-                <label htmlFor="address">Company Address:</label>
-                <h6>[post code, street, number]</h6>
+                <label htmlFor="address">
+                    {intl.formatMessage({ id: "rentConfirmationAddress" })}
+                </label>
+                <h6>
+                    [{intl.formatMessage({ id: "rentConfirmationAddressSub" })}]
+                </h6>
                 <input
                     type="text"
                     name="address"
@@ -26,19 +40,23 @@ export default function Contact({ setName, setAddress, setEmail, setPhone }) {
                 />
             </div>
             <div>
-                <label htmlFor="email">Email:</label>
+                <label htmlFor="email2">
+                    {intl.formatMessage({ id: "rentConfirmationEmail" })}
+                </label>
                 <input
-                    type="email"
-                    name="email"
+                    type="email2"
+                    name="email2"
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
             </div>
             <div>
-                <label htmlFor="tel">Phone Number:</label>
+                <label htmlFor="tel2">
+                    {intl.formatMessage({ id: "rentConfirmationPhone" })}
+                </label>
                 <input
-                    type="tel"
-                    name="phone"
+                    type="tel2"
+                    name="tel2"
                     onChange={(e) => setPhone(e.target.value)}
                     required
                 />

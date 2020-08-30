@@ -1,22 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import { respond, fonts } from "../../styles";
+import { useIntl } from "react-intl";
+import { fonts } from "../../styles";
 
 export default function Header() {
+    const intl = useIntl();
+
     return (
         <Container>
-            <h1>Rent the Chef</h1>
+            <h1>{intl.formatMessage({ id: "rentHeaderHeader" })}</h1>
             <ul>
-                <li>
-                    1. Fill the underneath form. Click Next/Previous button to
-                    navigate between form's sections.
-                </li>
-                <li>2. Review filled data and submit request.</li>
-                <li>
-                    3. You will receive a confirmation email. If it is your
-                    first time working with me you can expect the call to
-                    confirm the request.
-                </li>
+                <li>{intl.formatMessage({ id: "rentHeaderStep1" })}</li>
+                <li>{intl.formatMessage({ id: "rentHeaderStep2" })}</li>
+                <li>{intl.formatMessage({ id: "rentHeaderStep3" })}</li>
             </ul>
         </Container>
     );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { respond, fonts } from "../../../styles";
+import { useIntl } from "react-intl";
 //components
 import Calender from "./calender";
 import Hours from "./hours";
@@ -9,7 +9,9 @@ import Confirmation from "./confirmation";
 import Buttons from "./buttons";
 
 export default function Form() {
-    const [warning, setWarning] = useState("");
+    const intl = useIntl();
+
+    const [warning, setWarning] = useState(null);
     const [step, setStep] = useState(1); // max 4 steps
     const [date, setDate] = useState(null);
     const [hour, setHour] = useState(null);
@@ -25,13 +27,15 @@ export default function Form() {
     const next = (e) => {
         e.preventDefault();
         if (step === 1 && !date) {
-            return setWarning("Please select the date");
+            return setWarning(intl.formatMessage({ id: "rentCalender" }));
         }
         if (step === 2 && !hour) {
-            return setWarning("Please select the hour");
+            return setWarning(intl.formatMessage({ id: "rentHours" }));
         }
         if (step === 3 && !name | !address | !email | !phone) {
-            return setWarning("Please fill all required fields!");
+            return setWarning(
+                intl.formatMessage({ id: "rentConfirmationWarning" })
+            );
         }
         setWarning("");
         return setStep((prevState) => {
@@ -47,15 +51,16 @@ export default function Form() {
     return (
         <Container onSubmit={reserve}>
             {step === 1 ? (
-                <Calender setDate={setDate} next={next} />
+                <Calender setDate={setDate} intl={intl} />
             ) : step === 2 ? (
-                <Hours hour={hour} setHour={setHour} />
+                <Hours hour={hour} setHour={setHour} intl={intl} />
             ) : step === 3 ? (
                 <Contact
                     setName={setName}
                     setAddress={setAddress}
                     setEmail={setEmail}
                     setPhone={setPhone}
+                    intl={intl}
                 />
             ) : (
                 <Confirmation
@@ -65,6 +70,7 @@ export default function Form() {
                     address={address}
                     email={email}
                     phone={phone}
+                    intl={intl}
                 />
             )}
             {warning ? (
@@ -72,12 +78,7 @@ export default function Form() {
                     <p>{warning}</p>
                 </Warning>
             ) : null}
-            <Buttons
-                step={step}
-                next={next}
-                previous={previous}
-                reserve={reserve}
-            />
+            <Buttons step={step} next={next} previous={previous} intl={intl} />
         </Container>
     );
 }

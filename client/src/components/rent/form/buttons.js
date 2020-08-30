@@ -2,14 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import { fonts, respond } from "../../../styles";
 
-export default function Buttonss({ step, next, previous, reserve }) {
+export default function Buttonss({ step, next, previous, intl }) {
     return (
         <Buttons>
-            {step > 1 ? <Previous onClick={previous}>Previous</Previous> : null}
+            {step > 1 ? (
+                <Previous onClick={previous}>
+                    {intl.formatMessage({ id: "rentButtonPrev" })}
+                </Previous>
+            ) : null}
             {step === 4 ? (
-                <Submit type="submit">Submit</Submit>
+                <Submit type="submit">
+                    {intl.formatMessage({ id: "rentButtonSubmit" })}
+                </Submit>
             ) : (
-                <Next onClick={next}>Next</Next>
+                <Next onClick={next}>
+                    {intl.formatMessage({ id: "rentButtonNext" })}
+                </Next>
             )}
         </Buttons>
     );

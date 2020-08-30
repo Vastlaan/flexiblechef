@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { respond, fonts } from "../../../styles";
 
-export default function Hours({ hour, setHour }) {
+export default function Hours({ hour, setHour, intl }) {
     const times = [
         "06:00",
         "06:30",
@@ -39,16 +39,16 @@ export default function Hours({ hour, setHour }) {
         "23:00",
         "23:30",
     ];
-    console.log(hour);
+
     return (
         <Container>
             {hour ? (
                 <p style={{ fontSize: "3rem", color: "#2A9D8F" }}>
-                    You have selected: {hour}{" "}
+                    {intl.formatMessage({ id: "rentHoursDone" })} {hour}{" "}
                 </p>
             ) : (
                 <p style={{ fontSize: "3rem", color: "#2A9D8F" }}>
-                    Please choose an hour
+                    {intl.formatMessage({ id: "rentHours" })}
                 </p>
             )}
             {times.map((time, i) => {

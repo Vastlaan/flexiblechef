@@ -36,12 +36,12 @@ const Events = styled.div`
 
     p {
         font-family: ${fonts.baumans};
-        font-size: 2rem;
+        font-size: 1.35rem;
         text-transform: uppercase;
         opacity: 0.9;
         color: ${(props) => props.theme.grey};
         margin: 0 1rem;
-
+        ${() => respond("s", "font-size: 2rem; letter-spacing: 0.2rem;")}
         ${() => respond("m", "font-size: 3rem; letter-spacing: 0.2rem;")}
     }
 `;

@@ -9,32 +9,33 @@ export default function Confirmation({
     address,
     phone,
     email,
+    intl,
 }) {
     return (
         <Container>
-            <h6>Confirm your request:</h6>
+            <h6>{intl.formatMessage({ id: "rentConfirmationHeader" })}</h6>
             <div>
-                <p>Workplace:</p>
+                <p>{intl.formatMessage({ id: "rentConfirmationWorkplace" })}</p>
                 <span>{name}</span>
             </div>
             <div>
-                <p>Address:</p>
+                <p>{intl.formatMessage({ id: "rentConfirmationAddress" })}</p>
                 <span>{address}</span>
             </div>
             <div>
-                <p>Date:</p>
+                <p>{intl.formatMessage({ id: "rentConfirmationDate" })}</p>
                 <span>{date}</span>
             </div>
             <div>
-                <p>Time:</p>
+                <p>{intl.formatMessage({ id: "rentConfirmationTime" })}</p>
                 <span>{hour}</span>
             </div>
             <div>
-                <p>Contact phone:</p>
+                <p>{intl.formatMessage({ id: "rentConfirmationPhone" })}</p>
                 <span>{phone}</span>
             </div>
             <div>
-                <p>Contact email:</p>
+                <p>{intl.formatMessage({ id: "rentConfirmationEmail" })}</p>
                 <span>{email}</span>
             </div>
         </Container>

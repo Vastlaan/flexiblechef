@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { useIntl } from "react-intl";
 //components
-import Header from "../header";
+import Header from "./header";
 import Intersection from "../intersection";
-import About from "../about";
-import Services from "../services";
-import Reviews from "../reviews";
+import About from "./about";
+import Services from "./services";
+import Reviews from "./reviews";
 
 import WhatsApp from "../whatsApp";
 //icons

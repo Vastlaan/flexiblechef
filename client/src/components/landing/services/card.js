@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { BsCheckCircle } from "react-icons/bs";
-import { fonts, respond } from "../../styles";
+import { fonts, respond } from "../../../styles";
 
 // props color is a hex value, header is string and services is array of strings
 

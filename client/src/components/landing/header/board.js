@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useIntl } from "react-intl";
-import { fonts, respond } from "../../styles";
+import { fonts, respond } from "../../../styles";
 import styled from "styled-components";
 import Contact from "./contact";
 import { GiFoodTruck } from "react-icons/gi";
@@ -78,7 +78,7 @@ const Button = styled.button`
     font-size: 2rem;
     padding: 1rem 3rem;
     color: snow;
-    z-index: 9;
+    z-index: 8;
     text-transform: uppercase;
     font-weight: 300;
     cursor: pointer;
@@ -100,9 +100,10 @@ const FoodTruck = styled.div`
     z-index: 3;
     width: 100%;
     height: 100%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     font-size: 25rem;
     color: ${(props) => props.theme.tertiary};
+    ${() => respond("l", "display: flex;")}
 `;

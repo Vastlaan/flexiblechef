@@ -40,7 +40,7 @@ const Main = styled.footer`
 
     ${() =>
         respond(
-            "m",
+            "l",
             "flex-direction: row; justify-content: space-between; align-items: stretch;"
         )}
 `;

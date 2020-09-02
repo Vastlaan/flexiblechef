@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useIntl } from "react-intl";
-import { fonts, respond } from "../../styles";
+import { fonts, respond } from "../../../styles";
 
 export default function Eventss() {
     const intl = useIntl();
@@ -42,6 +42,6 @@ const Events = styled.div`
         color: ${(props) => props.theme.grey};
         margin: 0 1rem;
         ${() => respond("s", "font-size: 2rem; letter-spacing: 0.2rem;")}
-        ${() => respond("m", "font-size: 3rem; letter-spacing: 0.2rem;")}
+        ${() => respond("m", "font-size: 2.5rem; letter-spacing: 0.2rem;")}
     }
 `;

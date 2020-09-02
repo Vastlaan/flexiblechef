@@ -5,7 +5,7 @@ import "react-day-picker/lib/style.css";
 import dateFormat from "dateformat";
 import { respond, fonts } from "../../../styles";
 
-export default function Calender({ setDate, intl }) {
+export default function Calender({ date, setDate, intl }) {
     const handleDayClick = (day, modifiers = {}) => {
         if (modifiers.disabled) {
             return;
@@ -16,9 +16,17 @@ export default function Calender({ setDate, intl }) {
     return (
         <Container>
             <WrapperStyles>
-                <p style={{ fontSize: "3rem", color: "#2A9D8F" }}>
-                    {intl.formatMessage({ id: "rentCalender" })}
-                </p>
+                {date ? (
+                    <p style={{ fontSize: "3rem", color: "#2A9D8F" }}>
+                        {intl.formatMessage({ id: "rentCalenderChoosen" })}:{" "}
+                        {date}
+                    </p>
+                ) : (
+                    <p style={{ fontSize: "3rem", color: "#2A9D8F" }}>
+                        {intl.formatMessage({ id: "rentCalender" })}
+                    </p>
+                )}
+
                 <DayPicker
                     disabledDays={[{ before: new Date() }]}
                     onDayClick={handleDayClick}

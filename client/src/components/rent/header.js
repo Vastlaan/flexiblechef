@@ -25,16 +25,19 @@ const Container = styled.div`
         color: ${(props) => props.theme.primary};
         text-align: center;
         font-weight: 400;
+        text-transform: uppercase;
     }
     ul {
-        padding: 0rem 2rem;
+        padding: 2rem;
         list-style: none;
+        background-color: ${(props) => props.theme.tertiary};
 
         li {
+            margin: 1rem auto;
             font-family: ${fonts.rajdhani};
             font-size: 2rem;
             text-align: center;
-            color: ${(props) => props.theme.warm};
+            color: snow;
         }
     }
 `;

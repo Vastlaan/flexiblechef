@@ -1,6 +1,6 @@
 import React from "react";
 import { useIntl } from "react-intl";
-import { fonts } from "../../styles";
+import { fonts } from "../../../styles";
 import styled from "styled-components";
 import { RiTimeLine, RiPhoneLine, RiMailLine } from "react-icons/ri";
 

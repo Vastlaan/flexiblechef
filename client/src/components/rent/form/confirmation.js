@@ -11,6 +11,25 @@ export default function Confirmation({
     email,
     intl,
 }) {
+    const countPrice = () => {
+        const price = 24.85;
+
+        const [h1, m1] = hour[0].split(":");
+        const time1ToMinutes = Number(h1) * 60 + Number(m1);
+        const [h2, m2] = hour[1].split(":");
+        const time2ToMinutes = Number(h2) * 60 + Number(m2);
+
+        console.log(time1ToMinutes, time2ToMinutes);
+        if (time2ToMinutes > time1ToMinutes) {
+            return (((time2ToMinutes - time1ToMinutes) * price) / 60).toFixed(
+                2
+            );
+        } else {
+            return (((time1ToMinutes - time2ToMinutes) * price) / 60).toFixed(
+                2
+            );
+        }
+    };
     return (
         <Container>
             <h6>{intl.formatMessage({ id: "rentConfirmationHeader" })}</h6>
@@ -28,7 +47,9 @@ export default function Confirmation({
             </div>
             <div>
                 <p>{intl.formatMessage({ id: "rentConfirmationTime" })}</p>
-                <span>{hour}</span>
+                <span>
+                    {hour[0]} : {hour[1] ? hour[1] : "???"}
+                </span>
             </div>
             <div>
                 <p>{intl.formatMessage({ id: "rentConfirmationPhone" })}</p>
@@ -38,11 +59,26 @@ export default function Confirmation({
                 <p>{intl.formatMessage({ id: "rentConfirmationEmail" })}</p>
                 <span>{email}</span>
             </div>
+            <div
+                style={{
+                    fontSize: "3rem",
+                    backgroundColor: "orangered",
+                    padding: "1rem 2rem",
+                    display: "inline-block",
+                    margin: "0 auto",
+                }}
+            >
+                <p>{intl.formatMessage({ id: "rentConfirmationPrice" })}</p>
+                <span>{countPrice()} &euro; excl.BTW</span>
+            </div>
         </Container>
     );
 }
 
 const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   h6{
      font-family: ${fonts.cormorant}
       font-size: 3rem;

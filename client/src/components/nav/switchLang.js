@@ -10,35 +10,34 @@ export default function SwitchLang() {
 
     return (
         <Container>
-            <button
-                onClick={() => {
-                    console.log(store);
-                    dispatch({
-                        type: "changeLang",
-                        payload: "nl",
-                    });
-                }}
-            >
-                <Flag src={NlFlag} alt="dutch flag" />
-            </button>
-            <button
-                onClick={() =>
-                    dispatch({
-                        type: "changeLang",
-                        payload: "en",
-                    })
-                }
-            >
-                <Flag src={EnFlag} alt="english flag" />
-            </button>
+            {store.lang === "en" ? (
+                <button
+                    onClick={() => {
+                        dispatch({
+                            type: "changeLang",
+                            payload: "nl",
+                        });
+                    }}
+                >
+                    <Flag src={NlFlag} alt="dutch flag" />
+                </button>
+            ) : (
+                <button
+                    onClick={() =>
+                        dispatch({
+                            type: "changeLang",
+                            payload: "en",
+                        })
+                    }
+                >
+                    <Flag src={EnFlag} alt="english flag" />
+                </button>
+            )}
         </Container>
     );
 }
 
 const Container = styled.div`
-    margin-right: 0rem;
-    ${() => respond("m", "margin-right:5rem;")}
-
     display: flex;
 
     button {

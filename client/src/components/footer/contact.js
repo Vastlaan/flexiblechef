@@ -45,11 +45,11 @@ const Contact = styled.div`
     flex-direction: column;
     align-items: center;
 
-    ${() => respond("m", "align-items: stretch; justify-content: flex-start;")}
+    ${() => respond("l", "align-items: stretch; justify-content: flex-start;")}
 `;
 const Header = styled.div`
     text-align: center;
-    ${() => respond("m", "text-align: left;")}
+    ${() => respond("l", "text-align: left;")}
     h3 {
         font-family: ${fonts.baumans};
         letter-spacing: 0.2rem;
@@ -69,7 +69,7 @@ const Header = styled.div`
 const Address = styled.div`
     margin: 1rem 0;
     text-align: center;
-    ${() => respond("m", "text-align: left;")}
+    ${() => respond("l", "text-align: left;")}
     p {
         font-family: ${fonts.rajdhani};
         font-size: 2rem;
@@ -141,7 +141,7 @@ const Social = styled.div`
         display: flex;
         justify-content: center;
 
-        ${() => respond("m", "justify-content: flex-start;")}
+        ${() => respond("l", "justify-content: flex-start;")}
         svg {
             cursor: pointer;
             font-size: 4rem;

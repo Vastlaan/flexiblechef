@@ -3,6 +3,11 @@
     "htmlDescription": "Huur flexibel inzetbaar kok voor uw bedrijf. Sinds 2011 actief op verschillende locaties in Amsterdam. Bedrijfscatering. Restaurants. Banqueting. Evenementen.",
     "htmlKeywords": "huur de kok, zzp kok, zelfstandig werkend kok, flexible kok, kok te huur, ",
 
+    "navigationHome": "Voorpagina",
+    "navigationRent": "Nu Huren",
+    "navigationGallery": "Gallerij",
+    "navigationCertificates": "Certificaten",
+
     "headerSlogan1": "Rent the chef",
     "headerSlogan2": "who suits your needs",
     "headerSloganBtn": "Rent Now",
@@ -41,14 +46,17 @@
 
     "intersection2Header": "Affordable & Committed",
     "intersection2Text": "Skilled chef for always the lowest price! Almost 10 years of experience in various locations in Amsterdam. The quality that is nowhere to be found. The professional you want to connect with.",
-    "intersection2Price": "gross per hour",
+    "intersection2Price": "netto per hour",
 
     "rentHeaderHeader": "Rent the Chef",
     "rentHeaderStep1": "1. Fill the underneath form. Click Next/Previous buttons to navigate between form's sections.",
     "rentHeaderStep2": "2. Review filled data and submit the request.",
     "rentHeaderStep3": "3. You will receive a confirmation email. If it is your first time working with me you can expect the call to confirm the request.",
     "rentCalender": "Please choose a date",
+    "rentCalenderChoosen": "You've choosen:",
     "rentHours": "Please choose an hour",
+    "rentHoursFrom": "Start time:",
+    "rentHoursTill": "Finish time:",
     "rentHoursDone": "You have selected:",
     "rentContactHeader": "Your details:",
     "rentConfirmationHeader": "Confirm your request:",
@@ -60,6 +68,7 @@
     "rentConfirmationTime": "Time:",
     "rentConfirmationPhone": "Contact phone:",
     "rentConfirmationEmail": "Contact email:",
+    "rentConfirmationPrice": "Prijs:",
     "rentButtonPrev": "Previous",
     "rentButtonNext": "Next",
     "rentButtonSubmit": "Submit",

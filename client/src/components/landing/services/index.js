@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import styled, { ThemeContext } from "styled-components";
 import { useIntl } from "react-intl";
 import Card from "./card";
-import Chef from "../../img/chef-preparing.png";
-import Catering from "../../img/catering.png";
-import Banq from "../../img/banqueting.png";
-import { fonts, respond } from "../../styles";
+import Chef from "../../../img/chef-preparing.png";
+import Catering from "../../../img/catering.png";
+import Banq from "../../../img/banqueting.png";
+import { fonts, respond } from "../../../styles";
 
 export default function Services(props) {
     const themeContext = useContext(ThemeContext);

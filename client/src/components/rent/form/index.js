@@ -14,7 +14,7 @@ export default function Form() {
     const [warning, setWarning] = useState(null);
     const [step, setStep] = useState(1); // max 4 steps
     const [date, setDate] = useState(null);
-    const [hour, setHour] = useState(null);
+    const [hour, setHour] = useState([]);
     const [name, setName] = useState(null);
     const [address, setAddress] = useState(null);
     const [email, setEmail] = useState(null);
@@ -29,7 +29,7 @@ export default function Form() {
         if (step === 1 && !date) {
             return setWarning(intl.formatMessage({ id: "rentCalender" }));
         }
-        if (step === 2 && !hour) {
+        if (step === 2 && !hour | (hour === [])) {
             return setWarning(intl.formatMessage({ id: "rentHours" }));
         }
         if (step === 3 && !name | !address | !email | !phone) {
@@ -51,7 +51,7 @@ export default function Form() {
     return (
         <Container onSubmit={reserve}>
             {step === 1 ? (
-                <Calender setDate={setDate} intl={intl} />
+                <Calender date={date} setDate={setDate} intl={intl} />
             ) : step === 2 ? (
                 <Hours hour={hour} setHour={setHour} intl={intl} />
             ) : step === 3 ? (

@@ -1,42 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { fonts, respond } from "../../styles";
 import SwitchLang from "./switchLang";
+import MainButton from "./mainButton";
+import Menu from "./menu";
 import { RiSunLine, RiMoonLine } from "react-icons/ri";
 
 export default function Nav({ isDarkTheme, setIsDarkTheme }) {
-    return (
-        <Navigation>
-            <Link to="/" style={{ textDecoration: "none" }}>
-                <Name>Flexible Chef</Name>
-            </Link>
+    const [isOpen, setIsOpen] = useState(false);
 
-            <Options>
-                <SwitchLang />
-                <ToggleTheme
-                    onClick={() => setIsDarkTheme((prevState) => !prevState)}
-                >
-                    {isDarkTheme ? <RiSunLine /> : <RiMoonLine />}
-                </ToggleTheme>
-            </Options>
-        </Navigation>
+    return (
+        <Container>
+            <Navigation>
+                <Link to="/" style={{ textDecoration: "none" }}>
+                    <Name>Flexible Chef</Name>
+                </Link>
+
+                <Options>
+                    <SwitchLang />
+                    <ToggleTheme
+                        onClick={() =>
+                            setIsDarkTheme((prevState) => !prevState)
+                        }
+                    >
+                        {isDarkTheme ? <RiSunLine /> : <RiMoonLine />}
+                    </ToggleTheme>
+                    <MainButton isOpen={isOpen} setIsOpen={setIsOpen} />
+                </Options>
+            </Navigation>
+            <Menu isOpen={isOpen} setIsOpen={setIsOpen} />
+        </Container>
     );
 }
 
-const Navigation = styled.nav`
-    padding: 0rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+const Container = styled.div`
     position: fixed;
     z-index: 10;
     top: 0;
     left: 0;
     width: 100%;
     background-color: ${(props) => props.theme.bg};
-    border-bottom: 1px solid ${(props) => props.theme.grey};
+`;
+const Navigation = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0rem 1rem;
     ${() => respond("m", "padding: 0rem 2rem;")};
+    border-bottom: 1px solid ${(props) => props.theme.grey};
 `;
 
 const Name = styled.div`
@@ -48,8 +61,10 @@ const Name = styled.div`
 const Options = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: center;
 `;
 const ToggleTheme = styled.button`
+    margin-right: 1rem;
     display: flex;
     align-items: center;
     background-color: transparent;

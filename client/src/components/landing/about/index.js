@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { useIntl } from "react-intl";
-import { fonts, respond } from "../../styles";
-import Me from "../../img/me.jpg";
+import { fonts, respond } from "../../../styles";
+import Me from "../../../img/me.jpg";
 
 export default function About() {
     const intl = useIntl();

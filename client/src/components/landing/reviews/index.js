@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useIntl } from "react-intl";
-import { fonts, respond } from "../../styles";
-import Rev from "../../img/reviews.jpg";
+import { fonts, respond } from "../../../styles";
+import Rev from "../../../img/reviews.jpg";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 
 export default function Reviews() {
@@ -17,6 +17,8 @@ export default function Reviews() {
                 case 2:
                     return setQ(3);
                 case 3:
+                    return setQ(1);
+                default:
                     return setQ(1);
             }
         };

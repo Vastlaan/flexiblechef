@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { BsCheckCircle } from "react-icons/bs";
-import { fonts, respond } from "../../../styles";
+import { fonts, respond, Button } from "../../../styles";
 
 // props color is a hex value, header is string and services is array of strings
 
@@ -98,20 +98,5 @@ const List = styled.ul`
 
             ${() => respond("l", "flex: 1;")}
         }
-    }
-`;
-const Button = styled.button`
-    margin: 2rem auto;
-    padding: 1rem 3rem;
-    border: 1px solid ${(props) => props.color};
-    background-color: ${(props) => props.theme.bg};
-    color: ${(props) => props.color};
-    font-size: 2.2rem;
-    font-family: ${fonts.rajdhani};
-    cursor: pointer;
-
-    &:focus,
-    :active {
-        outline: none;
     }
 `;

@@ -8,7 +8,7 @@ import { fonts, respond } from "../../styles";
 export default function Footer() {
     const intl = useIntl();
     return (
-        <Container id="footer">
+        <Container id="contact">
             <Main>
                 <Contact intl={intl} />
                 <Form intl={intl} />

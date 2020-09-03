@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 //  Colors
 export const lightTheme = {
     primary: "#264653",
@@ -51,3 +53,27 @@ export const respond = (type, content) => {
   }`;
     }
 };
+
+export const Button = styled.button`
+    margin: 2rem auto;
+    padding: 1rem 3rem;
+    border: 1px solid ${(props) => props.color};
+    background-color: ${(props) => props.theme.bg};
+    color: ${(props) => props.color};
+    font-size: 2.2rem;
+    font-family: ${fonts.rajdhani};
+    cursor: pointer;
+
+    &:focus,
+    :active {
+        outline: none;
+    }
+`;
+
+export const Header = styled.h1`
+    font-family: ${fonts.baumans};
+    font-size: 3rem;
+    color: ${(props) => props.theme.primary};
+    text-transform: uppercase;
+    text-align: center;
+`;

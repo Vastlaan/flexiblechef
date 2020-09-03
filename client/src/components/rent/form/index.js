@@ -7,29 +7,60 @@ import Hours from "./hours";
 import Contact from "./contact";
 import Confirmation from "./confirmation";
 import Buttons from "./buttons";
+import Conf from "./requestConfirmation";
 
 export default function Form() {
     const intl = useIntl();
 
     const [warning, setWarning] = useState(null);
+    const [confirmationRequest, setConfirmationRequest] = useState(false);
     const [step, setStep] = useState(1); // max 4 steps
-    const [date, setDate] = useState(null);
+    const [date, setDate] = useState("");
     const [hour, setHour] = useState([]);
-    const [name, setName] = useState(null);
-    const [address, setAddress] = useState(null);
-    const [email, setEmail] = useState(null);
-    const [phone, setPhone] = useState(null);
+    const [name, setName] = useState("");
+    const [address, setAddress] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [price, setPrice] = useState("");
 
     const reserve = (e) => {
         e.preventDefault();
-        console.log(date, hour, name, address, phone, email);
+        const data = {
+            name,
+            email,
+            address,
+            phone,
+            date,
+            start: hour[0],
+            end: hour[1],
+            price,
+        };
+        fetch("/submitChefRequest", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if ((data = "Succes")) {
+                    console.log("1");
+                    setConfirmationRequest(true);
+                } else {
+                    console.log("error");
+                }
+            })
+            .catch((e) => {
+                console.error(e);
+            });
     };
     const next = (e) => {
         e.preventDefault();
         if (step === 1 && !date) {
             return setWarning(intl.formatMessage({ id: "rentCalender" }));
         }
-        if (step === 2 && !hour | (hour === [])) {
+        if (step === 2 && !hour | !hour[0] | !hour[1]) {
             return setWarning(intl.formatMessage({ id: "rentHours" }));
         }
         if (step === 3 && !name | !address | !email | !phone) {
@@ -50,12 +81,29 @@ export default function Form() {
     };
     return (
         <Container onSubmit={reserve}>
+            {confirmationRequest ? (
+                <Conf
+                    name={name}
+                    address={address}
+                    email={email}
+                    phone={phone}
+                    hour={hour}
+                    date={date}
+                    price={price}
+                    setConfirmationRequest={setConfirmationRequest}
+                    intl={intl}
+                />
+            ) : null}
             {step === 1 ? (
                 <Calender date={date} setDate={setDate} intl={intl} />
             ) : step === 2 ? (
                 <Hours hour={hour} setHour={setHour} intl={intl} />
             ) : step === 3 ? (
                 <Contact
+                    name={name}
+                    address={address}
+                    email={email}
+                    phone={phone}
                     setName={setName}
                     setAddress={setAddress}
                     setEmail={setEmail}
@@ -71,6 +119,8 @@ export default function Form() {
                     email={email}
                     phone={phone}
                     intl={intl}
+                    price={price}
+                    setPrice={setPrice}
                 />
             )}
             {warning ? (

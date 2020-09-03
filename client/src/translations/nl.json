@@ -6,7 +6,7 @@
     "navigationHome": "Voorpagina",
     "navigationRent": "Nu Huren",
     "navigationGallery": "Gallerij",
-    "navigationCertificates": "Certificaten",
+    "navigationCertificates": "Contact",
 
     "headerSlogan1": "Huur de kok",
     "headerSlogan2": "die bij u past",
@@ -19,6 +19,7 @@
 
     "aboutHeader": "Graag wil ik me even voorstellen.",
     "aboutText": "Aangenaam, mijn naam is Michal Antczak en ik werk als kok sinds 2011, laatst als Zelfstandig Werkend Kok bij Vermaat Hospitality, vroeger als een all-round chef de partie bij Sofitel The Grand Hotel in Amsterdam of Ontbijt Supervisor in Hotel Amsterdam, Brasserie de Roode Leeuw. Tijdens mijn diensten in de keuken werkte ik met de beste koks en ik heb verschillende kooktechnieken en moderne culinaire trends leren kennen. Mijn ervaring omvat werken bij de banqueting evenementen, lunch, diners, ontbijt, bedijfscatering en vooral bij sterren restaurant 'The Bridges'.",
+    "aboutButton": "Mijn werk",
 
     "intersection1Header": "hygiëne & professionaliteit",
     "intersection1Text": "Ik ben een professional voor wie hygiëne altijd de prioriteit is. Vooral nu, als Covid-19 pandemie achter onze rug staat. Kiezen voor mij kiest u voor vakman, die weet waar de risco's liggen en werkt altijd volgens HACCP regels.",
@@ -72,6 +73,17 @@
     "rentButtonPrev": "Vorige",
     "rentButtonNext": "Volgende",
     "rentButtonSubmit": "Verzenden",
+    "rentRequestConfirmationH1": "Flexible Chef Verzoek Bevestiging",
+    "rentRequestConfirmationH2": "Ik heb uw bericht in goede orde ontvangen!",
+    "rentRequestConfirmationDate": "Datum werkzaamheden:",
+    "rentRequestConfirmationStart": "Starttijd:",
+    "rentRequestConfirmationEnd": "Eindtijd:",
+    "rentRequestConfirmationCompany": "Bedrijf:",
+    "rentRequestConfirmationAddress": "Adres:",
+    "rentRequestConfirmationEmail": "Email:",
+    "rentRequestConfirmationPhone": "Telefoon:",
+    "rentRequestConfirmationPrice": "Prijs:",
+    "rentRequestConfirmationRegards": "Ik neem contact met je op om de verzoek te bevestigen.",
 
     "footerSocial": "Volg mij op Social Media:",
     "footerContactHeader": "Contact Form",

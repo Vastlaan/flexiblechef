@@ -6,7 +6,7 @@
     "navigationHome": "Voorpagina",
     "navigationRent": "Nu Huren",
     "navigationGallery": "Gallerij",
-    "navigationCertificates": "Certificaten",
+    "navigationCertificates": "Contact",
 
     "headerSlogan1": "Rent the chef",
     "headerSlogan2": "who suits your needs",
@@ -19,6 +19,7 @@
 
     "aboutHeader": "I would like to introduce myself.",
     "aboutText": "Pleased to meet you, my name is Michal Antczak and I have been working as a chef since 2011, most recently as a Self-Employed Chef at Vermaat Hospitality, formerly as an all-round chef de partie at Sofitel The Grand Hotel in Amsterdam or Breakfast Supervisor in Hotel Amsterdam, Brasserie de Roode Leeuw. During my services in the kitchen I worked with the best chefs and I got to know different cooking techniques and modern culinary trends. My experience includes working at banqueting events, lunch, dinners, breakfast, company catering and especially star restaurant 'The Bridges'.",
+    "aboutButton": "My work",
 
     "intersection1Header": "hygiene & professionality",
     "intersection1Text": "I am a professional for who hygiene is always the priority. Especially now, when Covid-19 pandemic is still with us. I'm aware of where the risks are running and always work according to HACCP rules.",
@@ -72,6 +73,17 @@
     "rentButtonPrev": "Previous",
     "rentButtonNext": "Next",
     "rentButtonSubmit": "Submit",
+    "rentRequestConfirmationH1": "Flexible Chef Request Confirmation",
+    "rentRequestConfirmationH2": "I've succesfuly received your request!",
+    "rentRequestConfirmationDate": "Date of work:",
+    "rentRequestConfirmationStart": "Start time:",
+    "rentRequestConfirmationEnd": "Finish at:",
+    "rentRequestConfirmationCompany": "Company:",
+    "rentRequestConfirmationAddress": "Address:",
+    "rentRequestConfirmationEmail": "Email:",
+    "rentRequestConfirmationPhone": "Contact Phone:",
+    "rentRequestConfirmationPrice": "Price:",
+    "rentRequestConfirmationRegards": "I'll contact you to confirm the request.",
 
     "footerSocial": "Follow me on Social Media:",
     "footerContactHeader": "Contact Form",

@@ -13,7 +13,16 @@ export default function Nav({ isDarkTheme, setIsDarkTheme }) {
     return (
         <Container>
             <Navigation>
-                <Link to="/" style={{ textDecoration: "none" }}>
+                <Link
+                    to="/"
+                    onClick={() => {
+                        window.scrollTo(0, 0);
+                        return window.innerWidth < 780
+                            ? setIsOpen(false)
+                            : null;
+                    }}
+                    style={{ textDecoration: "none" }}
+                >
                     <Name>Flexible Chef</Name>
                 </Link>
 

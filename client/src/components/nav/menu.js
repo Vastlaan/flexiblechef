@@ -12,9 +12,12 @@ export default function Navigation({ isOpen, setIsOpen }) {
             <ul>
                 <Link
                     to="/"
-                    onClick={() =>
-                        window.innerWidth < 780 ? setIsOpen(false) : null
-                    }
+                    onClick={() => {
+                        window.scrollTo(0, 0);
+                        return window.innerWidth < 780
+                            ? setIsOpen(false)
+                            : null;
+                    }}
                 >
                     {intl.formatMessage({ id: "navigationHome" })}
                 </Link>
@@ -34,21 +37,25 @@ export default function Navigation({ isOpen, setIsOpen }) {
                 >
                     {intl.formatMessage({ id: "navigationGallery" })}
                 </Link>
-                <Link
-                    to="/certificates"
-                    onClick={() =>
-                        window.innerWidth < 780 ? setIsOpen(false) : null
-                    }
+                <li
+                    onClick={() => {
+                        document
+                            .querySelector("#contact")
+                            .scrollIntoView({ behavior: "smooth" });
+                        return window.innerWidth < 780
+                            ? setIsOpen(false)
+                            : null;
+                    }}
                 >
                     {intl.formatMessage({ id: "navigationCertificates" })}
-                </Link>
+                </li>
             </ul>
         </Nav>
     );
 }
 
 const Nav = styled.nav`
-    background-color: ${(props) => props.theme.tertiary};
+    background-color: ${(props) => props.theme.footer};
     width: 100%;
     transition: all 0.3s;
     height: ${(props) => (props.isOpen ? "28rem" : "0rem")};
@@ -77,7 +84,7 @@ const Nav = styled.nav`
                 `flex-direction: row; align-items: center; justify-content: space-around;`
             )}
 
-        a {
+        a, li {
             text-decoration: none;
             font-family: ${fonts.rajdhani};
             font-size: 2rem;

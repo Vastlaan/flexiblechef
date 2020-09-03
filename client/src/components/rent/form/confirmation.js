@@ -10,6 +10,8 @@ export default function Confirmation({
     phone,
     email,
     intl,
+    price,
+    setPrice,
 }) {
     const countPrice = () => {
         const price = 24.85;
@@ -21,56 +23,50 @@ export default function Confirmation({
 
         console.log(time1ToMinutes, time2ToMinutes);
         if (time2ToMinutes > time1ToMinutes) {
-            return (((time2ToMinutes - time1ToMinutes) * price) / 60).toFixed(
-                2
-            );
+            const result = ((time2ToMinutes - time1ToMinutes) * price) / 60;
+            setPrice(result);
+            return result.toFixed(2);
         } else {
-            return (((time1ToMinutes - time2ToMinutes) * price) / 60).toFixed(
-                2
-            );
+            const result = ((time1ToMinutes - time2ToMinutes) * price) / 60;
+            setPrice(result);
+            return result.toFixed(2);
         }
     };
     return (
         <Container>
             <h6>{intl.formatMessage({ id: "rentConfirmationHeader" })}</h6>
-            <div>
+            <Field>
                 <p>{intl.formatMessage({ id: "rentConfirmationWorkplace" })}</p>
                 <span>{name}</span>
-            </div>
-            <div>
+            </Field>
+            <Field>
                 <p>{intl.formatMessage({ id: "rentConfirmationAddress" })}</p>
                 <span>{address}</span>
-            </div>
-            <div>
+            </Field>
+            <Field>
                 <p>{intl.formatMessage({ id: "rentConfirmationDate" })}</p>
                 <span>{date}</span>
-            </div>
-            <div>
+            </Field>
+            <Field>
                 <p>{intl.formatMessage({ id: "rentConfirmationTime" })}</p>
                 <span>
                     {hour[0]} : {hour[1] ? hour[1] : "???"}
                 </span>
-            </div>
-            <div>
+            </Field>
+            <Field>
                 <p>{intl.formatMessage({ id: "rentConfirmationPhone" })}</p>
                 <span>{phone}</span>
-            </div>
-            <div>
+            </Field>
+            <Field>
                 <p>{intl.formatMessage({ id: "rentConfirmationEmail" })}</p>
                 <span>{email}</span>
-            </div>
-            <div
-                style={{
-                    fontSize: "3rem",
-                    backgroundColor: "orangered",
-                    padding: "1rem 2rem",
-                    display: "inline-block",
-                    margin: "0 auto",
-                }}
-            >
+            </Field>
+            <Price>
                 <p>{intl.formatMessage({ id: "rentConfirmationPrice" })}</p>
-                <span>{countPrice()} &euro; excl.BTW</span>
-            </div>
+                <span>
+                    {countPrice()} &euro; <sub>excl.BTW</sub>
+                </span>
+            </Price>
         </Container>
     );
 }
@@ -86,8 +82,9 @@ const Container = styled.div`
       width: 100%;
       color: ${(props) => props.theme.tertiary};
   }
-  div{
-    display: flex;
+}`;
+const Field = styled.div`
+display: flex;
     flex-direction: column;
     align-items: center;
 
@@ -105,5 +102,30 @@ const Container = styled.div`
       width: 100%;
       color: ${(props) => props.theme.font};
     }
-  }
+`;
+const Price = styled.div`
+    padding: 1rem 2rem;
+    display: inline-block;
+    margin: 0 auto;
+
+    p {
+        font-family: ${fonts.cormorant};
+        font-size: 2rem;
+        text-align: center;
+        width: 100%;
+        color: ${(props) => props.theme.warm};
+        margin-bottom: 1rem;
+    }
+    span {
+        border: 1px solid ${(props) => props.theme.warm};
+        padding: 1rem 2rem;
+        font-family: ${fonts.cormorant};
+        font-size: 3rem;
+        text-align: center;
+        width: 100%;
+        color: ${(props) => props.theme.font};
+        sub {
+            font-size: 1.2rem;
+        }
+    }
 `;

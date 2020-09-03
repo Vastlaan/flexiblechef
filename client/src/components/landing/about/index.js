@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useIntl } from "react-intl";
-import { fonts, respond } from "../../../styles";
+import { fonts, respond, Button, Header } from "../../../styles";
 import Me from "../../../img/me.jpg";
 
 export default function About() {
@@ -13,6 +14,13 @@ export default function About() {
                 <img src={Me} alt="me an chef" />
             </Image>
             <Text>{intl.formatMessage({ id: "aboutText" })}</Text>
+
+            <CustomButton>
+                <Link to="/gallery">
+                    {intl.formatMessage({ id: "aboutButton" })}
+                </Link>
+            </CustomButton>
+
             <Wave>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                     <path
@@ -37,13 +45,7 @@ const Container = styled.div`
     align-items: center;
     flex-direction: column;
 `;
-const Header = styled.h3`
-    font-family: ${fonts.baumans};
-    font-size: 3rem;
-    color: ${(props) => props.theme.primary};
-    text-transform: uppercase;
-    text-align: center;
-`;
+
 const Image = styled.div`
     margin: 5rem auto;
     display: flex;
@@ -66,7 +68,6 @@ const Wave = styled.div`
     z-index: 3;
 `;
 const Text = styled.p`
-    margin-bottom: 5rem;
     text-align: center;
     width: 90%;
     z-index: 6;
@@ -78,5 +79,17 @@ const Text = styled.p`
 
     strong {
         font-weight: 600;
+    }
+`;
+
+const CustomButton = styled(Button)`
+    z-index: 4;
+    border: 1px solid ${(props) => props.theme.warm};
+
+    background-color: ${(props) => props.theme.bg};
+
+    a {
+        text-decoration: none;
+        color: ${(props) => props.theme.warm};
     }
 `;

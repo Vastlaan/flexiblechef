@@ -3,6 +3,10 @@ import styled from "styled-components";
 import { respond, fonts } from "../../../styles";
 
 export default function Contact({
+    name,
+    address,
+    email,
+    phone,
     setName,
     setAddress,
     setEmail,
@@ -23,6 +27,7 @@ export default function Contact({
                     name="name2"
                     onChange={(e) => setName(e.target.value)}
                     required
+                    value={name}
                 />
             </div>
             <div>
@@ -37,6 +42,7 @@ export default function Contact({
                     name="address"
                     onChange={(e) => setAddress(e.target.value)}
                     required
+                    value={address}
                 />
             </div>
             <div>
@@ -48,6 +54,7 @@ export default function Contact({
                     name="email2"
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    value={email}
                 />
             </div>
             <div>
@@ -59,6 +66,7 @@ export default function Contact({
                     name="tel2"
                     onChange={(e) => setPhone(e.target.value)}
                     required
+                    value={phone}
                 />
             </div>
         </Container>

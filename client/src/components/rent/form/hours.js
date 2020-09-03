@@ -9,7 +9,7 @@ export default function Hours({ hour, setHour, intl }) {
     return (
         <Container>
             {!hour[0] | !hour[1] ? (
-                <p style={{ fontSize: "3rem", color: "#2A9D8F" }}>
+                <p style={{ fontSize: "3rem", color: "orangered" }}>
                     {intl.formatMessage({ id: "rentHours" })}
                 </p>
             ) : (
@@ -34,6 +34,8 @@ export default function Hours({ hour, setHour, intl }) {
                             return [e.target.value, prevState[1]];
                         });
                     }}
+                    value={hour[0]}
+                    step="900"
                 />
             </div>
             <div>
@@ -50,6 +52,8 @@ export default function Hours({ hour, setHour, intl }) {
                             return [prevState[0], e.target.value];
                         });
                     }}
+                    value={hour[1]}
+                    step="900"
                 />
             </div>
         </Container>
@@ -71,6 +75,8 @@ width: 100%;
       font-size: 2rem;
       text-align: center;
       width: 100%;
+      transition: all .3s;
+      animation: changeInfo .3s linear;
     }
 
     div {

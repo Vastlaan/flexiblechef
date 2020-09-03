@@ -22,7 +22,7 @@ export default function Calender({ date, setDate, intl }) {
                         {date}
                     </p>
                 ) : (
-                    <p style={{ fontSize: "3rem", color: "#2A9D8F" }}>
+                    <p style={{ fontSize: "3rem", color: "orangered" }}>
                         {intl.formatMessage({ id: "rentCalender" })}
                     </p>
                 )}
@@ -48,6 +48,8 @@ const WrapperStyles = styled.div`
       font-size: 2rem;
       text-align: center;
       width: 100%;
+      transition: all .3s;
+      animation: changeInfo .3s linear;
     }
     .DayPicker {
         font-size: 2rem;

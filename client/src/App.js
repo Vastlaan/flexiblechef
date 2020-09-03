@@ -9,6 +9,7 @@ import ScrollToTop from "./components/scrollToTop";
 import Nav from "./components/nav";
 import Landing from "./components/landing";
 import Rent from "./components/rent";
+import Gallery from "./components/gallery";
 import Footer from "./components/footer";
 import Cookies from "./components/cookies";
 //styles
@@ -42,6 +43,11 @@ function App() {
                     <Switch>
                         <Route exact={true} path="/" component={Landing} />
                         <Route exact={true} path="/rentme" component={Rent} />
+                        <Route
+                            exact={true}
+                            path="/gallery"
+                            component={Gallery}
+                        />
                     </Switch>
                     <Footer />
                 </Router>
@@ -53,6 +59,17 @@ function App() {
 }
 
 const GlobalStyles = createGlobalStyle`
+
+    @keyframes changeInfo{
+        0%{
+            opacity: 0;
+            transform: scale(1.2);
+        }
+        100%{
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
 
     *{
         margin:0;

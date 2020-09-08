@@ -5,6 +5,8 @@ import { respond, Header } from "../../styles";
 import FullScreen from "../FullScreenPhoto";
 
 export default function Gallery() {
+    const intl = useIntl();
+
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [currentImage, setCurrentImage] = useState("");
 
@@ -17,7 +19,7 @@ export default function Gallery() {
 
     return (
         <Container>
-            <Header>Gallery</Header>
+            <Header>{intl.formatMessage({ id: "galleryHeader" })}</Header>
             <Pictures>
                 <Image>
                     <img

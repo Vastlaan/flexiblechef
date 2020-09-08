@@ -18,7 +18,7 @@ export default function Board() {
                 <Lower>{intl.formatMessage({ id: "headerSlogan2" })}</Lower>
                 <Link
                     to="/rentme"
-                    style={{ textDecoration: "none", zIndex: 99 }}
+                    style={{ textDecoration: "none", zIndex: 9 }}
                 >
                     <Button>
                         {intl.formatMessage({ id: "headerSloganBtn" })}

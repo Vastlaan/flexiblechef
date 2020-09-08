@@ -84,12 +84,12 @@ const Text = styled.p`
 
 const CustomButton = styled(Button)`
     z-index: 4;
-    border: 1px solid ${(props) => props.theme.warm};
+    border: 1px solid transparent;
 
     background-color: ${(props) => props.theme.bg};
 
     a {
         text-decoration: none;
-        color: ${(props) => props.theme.warm};
+        color: ${(props) => props.theme.font};
     }
 `;

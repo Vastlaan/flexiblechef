@@ -54,7 +54,7 @@ export default function Landing() {
                 text={intl.formatMessage({
                     id: "intersection2Text",
                 })}
-                price={`24.95`}
+                price={`24.60`}
                 priceDetail={intl.formatMessage({
                     id: "intersection2Price",
                 })}

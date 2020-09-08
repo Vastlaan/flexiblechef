@@ -14,7 +14,7 @@ export default function Confirmation({
     setPrice,
 }) {
     const countPrice = () => {
-        const price = 24.85;
+        const price = 24.6;
 
         const [h1, m1] = hour[0].split(":");
         const time1ToMinutes = Number(h1) * 60 + Number(m1);

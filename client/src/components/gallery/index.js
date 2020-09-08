@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useIntl } from "react-intl";
-import { fonts, respond, Header } from "../../styles";
+import { respond, Header } from "../../styles";
+import FullScreen from "../FullScreenPhoto";
 
 export default function Gallery() {
     const [isFullScreen, setIsFullScreen] = useState(false);
@@ -62,14 +63,10 @@ export default function Gallery() {
                 </Image>
             </Pictures>
             {isFullScreen ? (
-                <FullScreen>
-                    <button onClick={() => setIsFullScreen(false)}>
-                        Close
-                    </button>
-                    <div>
-                        <img src={currentImage} alt="food" />
-                    </div>
-                </FullScreen>
+                <FullScreen
+                    setIsFullScreen={setIsFullScreen}
+                    currentImage={currentImage}
+                />
             ) : null}
         </Container>
     );
@@ -112,36 +109,5 @@ const Image = styled.div`
         min-height: 100%;
         object-fit: cover;
         transition: all 0.9s;
-    }
-`;
-
-const FullScreen = styled.div`
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    button {
-        position: absolute;
-        top: 10rem;
-        right: 2rem;
-    }
-
-    div {
-        margin: 2rem auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img {
-            width: 90%;
-
-            ${() => respond("m", "width: 50%;")}
-        }
     }
 `;

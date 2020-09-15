@@ -84,7 +84,7 @@ const Text = styled.p`
 
 const CustomButton = styled(Button)`
     z-index: 4;
-    border: 1px solid transparent;
+    border: 1px solid ${(props) => props.theme.font};
 
     background-color: ${(props) => props.theme.bg};
 

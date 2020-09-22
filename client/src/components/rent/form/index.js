@@ -101,7 +101,7 @@ export default function Form() {
             ) : step === 3 ? (
                 <Contact
                     name={name}
-                    address={address}
+                    setWarning={setWarning}
                     email={email}
                     phone={phone}
                     setName={setName}

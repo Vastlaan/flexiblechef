@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { respond, fonts } from "../../../styles";
 
 export default function Contact({
     name,
-    address,
+    setWarning,
     email,
     phone,
     setName,
@@ -13,6 +13,36 @@ export default function Contact({
     setPhone,
     intl,
 }) {
+    const [postCode, setPostCode] = useState("");
+    const [streetNumber, setStreetNumber] = useState("");
+
+    useEffect(() => {
+        async function getFullAddress(p, n) {
+            try {
+                const response = await fetch(
+                    `https://geodata.nationaalgeoregister.nl/locatieserver/free?fq=postcode:${p}&fq=huisnummer:${n}`
+                );
+                const data = await response.json();
+                console.log(data.response.docs);
+                if (data.response.docs.length > 0) {
+                    const address = data.response.docs[0].weergavenaam;
+                    console.log(address);
+                    setWarning("");
+                    return setAddress(address);
+                } else {
+                    return setWarning(
+                        intl.formatMessage({ id: "rentConfirmationWarning2" })
+                    );
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        }
+        if (postCode.length > 5 && streetNumber.length > 0) {
+            getFullAddress(postCode, streetNumber);
+        }
+    }, [postCode, streetNumber]);
+
     return (
         <Container>
             <p style={{ fontSize: "3rem", color: "#2A9D8F" }}>
@@ -31,18 +61,43 @@ export default function Contact({
                 />
             </div>
             <div>
-                <label htmlFor="address">
-                    {intl.formatMessage({ id: "rentConfirmationAddress" })}
+                <label htmlFor="postcode">
+                    {intl.formatMessage({ id: "rentConfirmationAddressPost" })}
                 </label>
                 <h6>
-                    [{intl.formatMessage({ id: "rentConfirmationAddressSub" })}]
+                    [
+                    {intl.formatMessage({
+                        id: "rentConfirmationAddressPostSub",
+                    })}
+                    ]
                 </h6>
                 <input
                     type="text"
-                    name="address"
-                    onChange={(e) => setAddress(e.target.value)}
+                    name="postcode"
+                    onChange={(e) => setPostCode(e.target.value)}
                     required
-                    value={address}
+                    value={postCode}
+                />
+            </div>
+            <div>
+                <label htmlFor="streetnumber">
+                    {intl.formatMessage({
+                        id: "rentConfirmationAddressNumber",
+                    })}
+                </label>
+                <h6>
+                    [
+                    {intl.formatMessage({
+                        id: "rentConfirmationAddressNumberSub",
+                    })}
+                    ]
+                </h6>
+                <input
+                    type="text"
+                    name="streetnumber"
+                    onChange={(e) => setStreetNumber(e.target.value)}
+                    required
+                    value={streetNumber}
                 />
             </div>
             <div>

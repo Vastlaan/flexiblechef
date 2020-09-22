@@ -94,7 +94,8 @@
     "footerContactEmail": "Email:",
     "footerContactMsg": "Bericht:",
     "footerContactBtn": "Versturen",
-    "footerCopyright": "Alle rechten voorbehouden.",
+    "footerCopyright": "Alle rechten voorbehouden. Kvk [nummer] ",
+    "footerCopyrightVoorwaarden": "Bekijk onze Algemene Voorwaarden",
 
     "cookiesStatementHeader": "Deze website maakt gebruik van cookies",
     "cookiesStatementText": "We gebruiken cookies om inhoud en advertenties te personaliseren, om sociale media-functies te bieden en om ons verkeer te analyseren. Sommige van deze cookies delen we met onze sociale media, analytische en advertentiepartners."

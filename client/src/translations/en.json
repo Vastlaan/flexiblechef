@@ -94,7 +94,8 @@
     "footerContactEmail": "Email:",
     "footerContactMsg": "Message:",
     "footerContactBtn": "Send",
-    "footerCopyright": "All rights reserved.",
+    "footerCopyright": "All rights reserved. Kvk [number]",
+    "footerCopyrightVoorwaarden": "Check our Terms & Conditions",
 
     "cookiesStatementHeader": "This website uses Cookies",
     "cookiesStatementText": "We use cookies to personalise content and adds, to provide social media features and to analyse our traffic. We share some of this cookies with our social media, analytic and advertising partners."

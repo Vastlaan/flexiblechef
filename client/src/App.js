@@ -12,6 +12,7 @@ import Rent from "./components/rent";
 import Gallery from "./components/gallery";
 import Footer from "./components/footer";
 import Cookies from "./components/cookies";
+import Voorwaarden from "./components/voorwaarden";
 //styles
 import { lightTheme, darkTheme, respond } from "./styles";
 
@@ -47,6 +48,11 @@ function App() {
                             exact={true}
                             path="/gallery"
                             component={Gallery}
+                        />
+                        <Route
+                            exact={true}
+                            path="/algemene-voorwaarden"
+                            component={Voorwaarden}
                         />
                     </Switch>
                     <Footer />

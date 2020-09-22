@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useIntl } from "react-intl";
 import Contact from "./contact";
@@ -18,6 +19,13 @@ export default function Footer() {
                     Copyright &copy;{new Date().getFullYear()}{" "}
                     <a href="https://michalantczak.com">Michal Antczak</a>.{" "}
                     {intl.formatMessage({ id: "footerCopyright" })}
+                </p>
+                <p>
+                    <Link to="/algemene-voorwaarden">
+                        {intl.formatMessage({
+                            id: "footerCopyrightVoorwaarden",
+                        })}
+                    </Link>
                 </p>
             </Copyright>
         </Container>
@@ -49,6 +57,8 @@ const Copyright = styled.div`
     border-top: 1px solid snow;
     margin-top: 2rem;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
     p {
         font-family: ${fonts.rajdhani};
         font-size: 1.6rem;

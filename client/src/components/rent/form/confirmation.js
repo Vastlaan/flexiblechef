@@ -27,7 +27,8 @@ export default function Confirmation({
             setPrice(result);
             return result.toFixed(2);
         } else {
-            const result = ((time1ToMinutes - time2ToMinutes) * price) / 60;
+            const result =
+                ((1440 - time1ToMinutes + time2ToMinutes) * price) / 60;
             setPrice(result);
             return result.toFixed(2);
         }

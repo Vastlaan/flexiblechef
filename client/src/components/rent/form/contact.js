@@ -31,6 +31,7 @@ export default function Contact({
                     setWarning("");
                     return setAddress(address);
                 } else {
+                    setAddress("");
                     return setWarning(
                         intl.formatMessage({ id: "rentConfirmationWarning2" })
                     );

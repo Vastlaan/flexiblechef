@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { respond } from "../../../styles";
 
@@ -12,9 +13,11 @@ export default function Buttonss({ step, next, previous, intl, setIsChecked }) {
                         onChange={() => setIsChecked((prevState) => !prevState)}
                     />
                     <p>
-                        Ik bevestig dat ik de{" "}
-                        <a href="/algemene-voorwaarden">Algemene Voorwaarden</a>{" "}
-                        heb gelezen en ik ga ermee akkoord.
+                        {intl.formatMessage({ id: "rentButtonCheckbox1" })}{" "}
+                        <Link to="/algemene-voorwaarden">
+                            {intl.formatMessage({ id: "rentButtonCheckbox2" })}
+                        </Link>{" "}
+                        {intl.formatMessage({ id: "rentButtonCheckbox3" })}
                     </p>
                 </Checkbox>
             ) : null}

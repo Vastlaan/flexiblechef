@@ -85,8 +85,14 @@ export default function Form() {
             return prevState - 1;
         });
     };
+    const handlePressedEnter = (e) => {
+        e.preventDefault();
+        if (e.keyCode === 13) {
+            step === 4 ? reserve() : next();
+        }
+    };
     return (
-        <Container onSubmit={reserve}>
+        <Container onSubmit={reserve} onKeyPress={handlePressedEnter}>
             {confirmationRequest ? (
                 <Conf
                     name={name}

@@ -158,5 +158,6 @@ const Warning = styled.div`
         text-align: center;
         color: red;
         font-size: 1.8rem;
+        padding: 1rem;
     }
 `;

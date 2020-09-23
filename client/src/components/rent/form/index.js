@@ -22,9 +22,14 @@ export default function Form() {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [price, setPrice] = useState("");
+    const [isChecked, setIsChecked] = useState(false);
 
     const reserve = (e) => {
         e.preventDefault();
+
+        if (!isChecked) {
+            return setWarning(intl.formatMessage({ id: "rentWarningCheck" }));
+        }
         const data = {
             name,
             email,
@@ -47,6 +52,7 @@ export default function Form() {
                 if ((data = "Succes")) {
                     console.log("1");
                     setConfirmationRequest(true);
+                    e.reset();
                 } else {
                     console.log("error");
                 }
@@ -100,6 +106,7 @@ export default function Form() {
                 <Hours hour={hour} setHour={setHour} intl={intl} />
             ) : step === 3 ? (
                 <Contact
+                    address={address}
                     name={name}
                     setWarning={setWarning}
                     email={email}
@@ -128,7 +135,13 @@ export default function Form() {
                     <p>{warning}</p>
                 </Warning>
             ) : null}
-            <Buttons step={step} next={next} previous={previous} intl={intl} />
+            <Buttons
+                step={step}
+                next={next}
+                previous={previous}
+                intl={intl}
+                setIsChecked={setIsChecked}
+            />
         </Container>
     );
 }

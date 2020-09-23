@@ -1,10 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import { fonts, respond } from "../../../styles";
+import { respond } from "../../../styles";
 
-export default function Buttonss({ step, next, previous, intl }) {
+export default function Buttonss({ step, next, previous, intl, setIsChecked }) {
     return (
         <Buttons>
+            {step === 4 ? (
+                <Checkbox>
+                    <input
+                        type="checkbox"
+                        onChange={() => setIsChecked((prevState) => !prevState)}
+                    />
+                    <p>
+                        Ik bevestig dat ik de{" "}
+                        <a href="/algemene-voorwaarden">Algemene Voorwaarden</a>{" "}
+                        heb gelezen en ik ga ermee akkoord.
+                    </p>
+                </Checkbox>
+            ) : null}
             {step > 1 ? (
                 <Previous onClick={previous}>
                     {intl.formatMessage({ id: "rentButtonPrev" })}
@@ -64,5 +77,14 @@ const Submit = styled(Button)`
     &:hover {
         background-color: ${(props) => props.theme.tertiary};
         color: ${(props) => props.theme.bg};
+    }
+`;
+const Checkbox = styled.div`
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+
+    input {
+        margin-right: 1rem;
     }
 `;

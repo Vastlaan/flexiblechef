@@ -7,6 +7,7 @@ export default function Contact({
     setWarning,
     email,
     phone,
+    address,
     setName,
     setAddress,
     setEmail,
@@ -74,7 +75,7 @@ export default function Contact({
                 <input
                     type="text"
                     name="postcode"
-                    onChange={(e) => setPostCode(e.target.value)}
+                    onChange={(e) => setPostCode(e.target.value.toUpperCase())}
                     required
                     value={postCode}
                 />
@@ -101,11 +102,23 @@ export default function Contact({
                 />
             </div>
             <div>
+                <p>
+                    {address ? (
+                        <p>
+                            {intl.formatMessage({
+                                id: "rentConfirmationAddress",
+                            })}{" "}
+                            {address}
+                        </p>
+                    ) : null}
+                </p>
+            </div>
+            <div>
                 <label htmlFor="email2">
                     {intl.formatMessage({ id: "rentConfirmationEmail" })}
                 </label>
                 <input
-                    type="email2"
+                    type="email"
                     name="email2"
                     onChange={(e) => setEmail(e.target.value)}
                     required
@@ -117,7 +130,7 @@ export default function Contact({
                     {intl.formatMessage({ id: "rentConfirmationPhone" })}
                 </label>
                 <input
-                    type="tel2"
+                    type="tel"
                     name="tel2"
                     onChange={(e) => setPhone(e.target.value)}
                     required

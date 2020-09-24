@@ -7,10 +7,6 @@ import { fonts, respond, Button } from "../../../styles";
 // props color is a hex value, header is string and services is array of strings
 
 export default function Card({ color, header, services, intl, children }) {
-    const scrollToFooter = () => {
-        const footer = document.querySelector("#footer");
-        return footer.scrollIntoView({ behavior: "smooth" });
-    };
     return (
         <Main>
             <Header color={color}>{header}</Header>

@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { Context } from "../../store";
-import { respond } from "../../styles";
 import EnFlag from "../../img/England.png";
 import NlFlag from "../../img/Netherlands.png";
 

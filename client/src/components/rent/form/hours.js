@@ -3,9 +3,7 @@ import styled from "styled-components";
 import { respond, fonts } from "../../../styles";
 
 export default function Hours({ hour, setHour, intl }) {
-    useEffect(() => {
-        console.log(hour);
-    }, [hour]);
+    useEffect(() => {}, [hour]);
     return (
         <Container>
             {!hour[0] | !hour[1] ? (

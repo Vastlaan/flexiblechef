@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { respond, fonts } from "../../../styles";
+import { fonts } from "../../../styles";
 
 export default function Contact({
     name,
@@ -24,10 +24,9 @@ export default function Contact({
                     `https://geodata.nationaalgeoregister.nl/locatieserver/free?fq=postcode:${p}&fq=huisnummer:${n}`
                 );
                 const data = await response.json();
-                console.log(data.response.docs);
+
                 if (data.response.docs.length > 0) {
                     const address = data.response.docs[0].weergavenaam;
-                    console.log(address);
                     setWarning("");
                     return setAddress(address);
                 } else {

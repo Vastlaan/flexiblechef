@@ -3,7 +3,7 @@ import styled from "styled-components";
 import DayPicker from "react-day-picker";
 import "react-day-picker/lib/style.css";
 import dateFormat from "dateformat";
-import { respond, fonts } from "../../../styles";
+import { fonts } from "../../../styles";
 
 export default function Calender({ date, setDate, intl }) {
     const handleDayClick = (day, modifiers = {}) => {

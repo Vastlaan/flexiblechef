@@ -97,9 +97,9 @@ export default function Form({ intl }) {
                     </div>
                     <h1>Thank you for your message!</h1>
                     <h1>I will contact you as soon as possible.</h1>
-                    <a href="#" onClick={() => setDisplayConfirmation(false)}>
+                    <button onClick={() => setDisplayConfirmation(false)}>
                         <span>Ok</span>
-                    </a>
+                    </button>
                 </Confirmation>
             ) : null}
         </Container>
@@ -223,7 +223,9 @@ const Confirmation = styled.div`
         color: ${(props) => props.theme.bg};
     }
 
-    a {
+    a,
+    button {
+        background-color: transparent;
         margin-top: 2rem;
         color: ${(props) => props.theme.bg};
         border: 1px solid ${(props) => props.theme.bg};
@@ -231,5 +233,10 @@ const Confirmation = styled.div`
         text-decoration: none;
         padding: 1rem 2rem;
         cursor: pointer;
+
+        &:active,
+        :focus {
+            outline: none;
+        }
     }
 `;

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { respond, fonts } from "../../../styles";
+import { fonts } from "../../../styles";
 
 export default function Confirmation({
     date,
@@ -21,7 +21,6 @@ export default function Confirmation({
         const [h2, m2] = hour[1].split(":");
         const time2ToMinutes = Number(h2) * 60 + Number(m2);
 
-        console.log(time1ToMinutes, time2ToMinutes);
         if (time2ToMinutes > time1ToMinutes) {
             const result = ((time2ToMinutes - time1ToMinutes) * price) / 60;
             return setPrice(result.toFixed(2));

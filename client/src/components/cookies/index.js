@@ -15,7 +15,8 @@ export default function CookiesStatement() {
     const [necessary, setNecessary] = useState(true);
     const [analitycs, setAnalitycs] = useState(true);
     const [preferences, setPreferences] = useState(false);
-    const [marketing, setMarketing] = useState(false);
+    // //not using this type of cookies in this app
+    // const [marketing, setMarketing] = useState(false);
 
     const [displayPolicy, setDisplayPolicy] = useState(false);
 
@@ -60,9 +61,9 @@ export default function CookiesStatement() {
             if (each.type === "preferences") {
                 return (each.allow = preferences);
             }
-            if (each.type === "marketing") {
-                return (each.allow = marketing);
-            }
+            // if (each.type === "marketing") {
+            //     return (each.allow = marketing);
+            // }
         });
         localStorage.setItem("cookiesPresets", JSON.stringify(cookies));
         const cookiesPresets = window.localStorage.getItem("cookiesPresets");

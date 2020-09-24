@@ -12,6 +12,7 @@ export default function Confirmation({
     intl,
     price,
     setPrice,
+    history,
 }) {
     const countPrice = () => {
         const price = 24.6;

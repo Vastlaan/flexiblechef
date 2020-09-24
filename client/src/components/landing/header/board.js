@@ -55,19 +55,23 @@ const Upper = styled.h1`
     text-align: left;
     text-transform: uppercase;
     color: snow;
-    font-size: 5rem;
+    font-size: 3.5rem;
     font-weight: 400;
     z-index: 5;
     line-height: 2;
+
+    ${() => respond("s", "font-size: 5rem;")}
 `;
 const Lower = styled.h1`
     text-align: right;
     text-transform: uppercase;
     color: snow;
-    font-size: 5rem;
+    font-size: 3.5rem;
     font-weight: 400;
     z-index: 5;
     line-height: 2;
+
+    ${() => respond("s", "font-size: 5rem;")}
 `;
 const Button = styled.button`
     align-self: flex-end;

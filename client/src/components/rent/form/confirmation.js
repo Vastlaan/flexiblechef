@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { respond, fonts } from "../../../styles";
 
@@ -12,7 +12,6 @@ export default function Confirmation({
     intl,
     price,
     setPrice,
-    history,
 }) {
     const countPrice = () => {
         const price = 24.6;
@@ -25,15 +24,17 @@ export default function Confirmation({
         console.log(time1ToMinutes, time2ToMinutes);
         if (time2ToMinutes > time1ToMinutes) {
             const result = ((time2ToMinutes - time1ToMinutes) * price) / 60;
-            setPrice(result);
-            return result.toFixed(2);
+            return setPrice(result.toFixed(2));
         } else {
             const result =
                 ((1440 - time1ToMinutes + time2ToMinutes) * price) / 60;
-            setPrice(result);
-            return result.toFixed(2);
+            return setPrice(result.toFixed(2));
         }
     };
+
+    useEffect(() => {
+        countPrice();
+    });
     return (
         <Container>
             <h6>{intl.formatMessage({ id: "rentConfirmationHeader" })}</h6>
@@ -66,7 +67,7 @@ export default function Confirmation({
             <Price>
                 <p>{intl.formatMessage({ id: "rentConfirmationPrice" })}</p>
                 <span>
-                    {countPrice()} &euro; <sub>excl.BTW</sub>
+                    {price} &euro; <sub>excl.BTW</sub>
                 </span>
             </Price>
         </Container>

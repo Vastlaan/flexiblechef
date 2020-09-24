@@ -103,7 +103,7 @@ export default function Contact({
                 />
             </div>
             <div>
-                <p>
+                <div>
                     {address ? (
                         <p>
                             {intl.formatMessage({
@@ -112,7 +112,7 @@ export default function Contact({
                             {address}
                         </p>
                     ) : null}
-                </p>
+                </div>
             </div>
             <div>
                 <label htmlFor="email2">

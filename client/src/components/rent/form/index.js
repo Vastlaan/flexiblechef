@@ -25,6 +25,7 @@ export default function Form() {
     const [isChecked, setIsChecked] = useState(false);
 
     const reserve = (e) => {
+        e.preventDefault();
         if (!isChecked) {
             return setWarning(intl.formatMessage({ id: "rentWarningCheck" }));
         }
@@ -83,12 +84,7 @@ export default function Form() {
             return prevState - 1;
         });
     };
-    const handlePressedEnter = (e) => {
-        e.preventDefault();
-        if (e.keyCode === 13) {
-            step === 4 ? reserve() : next();
-        }
-    };
+
     return (
         <Container onSubmit={reserve}>
             {confirmationRequest ? (

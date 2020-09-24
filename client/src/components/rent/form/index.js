@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { useIntl } from "react-intl";
 //components
@@ -11,12 +12,13 @@ import Conf from "./requestConfirmation";
 
 export default function Form() {
     const intl = useIntl();
+    let history = useHistory();
 
     const [warning, setWarning] = useState(null);
     const [confirmationRequest, setConfirmationRequest] = useState(false);
     const [step, setStep] = useState(1); // max 4 steps
     const [date, setDate] = useState("");
-    const [hour, setHour] = useState([]);
+    const [hour, setHour] = useState(["", ""]);
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");
     const [email, setEmail] = useState("");
@@ -51,7 +53,6 @@ export default function Form() {
                 if ((data = "Succes")) {
                     console.log("1");
                     setConfirmationRequest(true);
-                    e.reset();
                 } else {
                     console.log("error");
                 }
@@ -98,6 +99,7 @@ export default function Form() {
                     price={price}
                     setConfirmationRequest={setConfirmationRequest}
                     intl={intl}
+                    history={history}
                 />
             ) : null}
             {step === 1 ? (

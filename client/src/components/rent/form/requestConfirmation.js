@@ -13,10 +13,16 @@ export default function RequestConfirmation({
     price,
     setConfirmationRequest,
     intl,
+    history,
 }) {
     return (
         <Conf>
-            <Close onClick={() => setConfirmationRequest(false)}>
+            <Close
+                onClick={() => {
+                    setConfirmationRequest(false);
+                    return history.push("/");
+                }}
+            >
                 <AiOutlineCloseCircle />
             </Close>
             <h1>{intl.formatMessage({ id: "rentRequestConfirmationH1" })}</h1>

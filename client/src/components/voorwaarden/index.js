@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import ReactGA from "react-ga";
 import { fonts } from "../../styles";
 
 export default function Voorwaarden() {
+    ReactGA.pageview("/algemene-voorwaarden");
+
     return (
         <Container>
             <Main>

@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import { useIntl } from "react-intl";
+import ReactGA from "react-ga";
 //components
 import Header from "./header";
 import Intersection from "../intersection";
@@ -16,6 +17,7 @@ import { respond } from "../../styles";
 
 export default function Landing() {
     const intl = useIntl();
+    ReactGA.pageview("/");
 
     return (
         <Main>

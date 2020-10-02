@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useIntl } from "react-intl";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { Context } from "./store";
+import ReactGA from "react-ga";
 //components
 import SEO from "./components/SEO";
 import ScrollToTop from "./components/scrollToTop";
@@ -20,6 +21,8 @@ function App() {
     const [isDarkTheme, setIsDarkTheme] = useState(false);
     const intl = useIntl();
     const { store, dispatch } = useContext(Context);
+
+    ReactGA.initialize("UA-132849357-6");
 
     return (
         <div>

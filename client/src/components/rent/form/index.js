@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { useIntl } from "react-intl";
+import ReactGA from "react-ga";
 //components
 import Calender from "./calender";
 import Hours from "./hours";
@@ -53,6 +54,11 @@ export default function Form() {
                 if ((data = "Succes")) {
                     console.log("1");
                     setConfirmationRequest(true);
+                    ReactGA.event({
+                        category: "SUBMITION",
+                        action: `Form has been submited`,
+                        label: "RENT_ME_PAGE",
+                    });
                 } else {
                     console.log("error");
                 }

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
+import ReactGA from "react-ga";
 import { fonts } from "../../../styles";
 
 export default function Confirmation({
@@ -13,6 +14,12 @@ export default function Confirmation({
     price,
     setPrice,
 }) {
+    ReactGA.event({
+        category: "DATA",
+        action: `All data has been filed succesfuly`,
+        label: "RENT_ME_PAGE",
+    });
+
     const countPrice = () => {
         const price = 24.6;
 

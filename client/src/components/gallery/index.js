@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import ReactGA from "react-ga";
 import { useIntl } from "react-intl";
 import { respond, Header } from "../../styles";
 import FullScreen from "../FullScreenPhoto";
@@ -9,6 +10,8 @@ export default function Gallery() {
 
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [currentImage, setCurrentImage] = useState("");
+
+    ReactGA.pageview("/gallery");
 
     const displayFullScreen = (e) => {
         e.persist();

@@ -1,8 +1,14 @@
 import React, { useEffect } from "react";
+import ReactGA from "react-ga";
 import styled from "styled-components";
 import { respond, fonts } from "../../../styles";
 
 export default function Hours({ hour, setHour, intl }) {
+    ReactGA.event({
+        category: "HOUR",
+        action: `Hour has been chosen`,
+        label: "RENT_ME_PAGE",
+    });
     useEffect(() => {}, [hour]);
     return (
         <Container>

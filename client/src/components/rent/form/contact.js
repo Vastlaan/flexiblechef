@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ReactGA from "react-ga";
 import styled from "styled-components";
 import { fonts } from "../../../styles";
 
@@ -16,6 +17,12 @@ export default function Contact({
 }) {
     const [postCode, setPostCode] = useState("");
     const [streetNumber, setStreetNumber] = useState("");
+
+    ReactGA.event({
+        category: "DATE",
+        action: `Date has been chosen`,
+        label: "RENT_ME_PAGE",
+    });
 
     useEffect(() => {
         async function getFullAddress(p, n) {

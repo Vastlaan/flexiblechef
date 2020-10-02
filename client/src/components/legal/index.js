@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import ReactGA from "react-ga";
 import { fonts } from "../../styles";
 import { AiOutlineCloseSquare } from "react-icons/ai";
 
 export default function Legal({ setDisplayPolicy }) {
+    ReactGA.pageview("/legal");
+
     return (
         <Container>
             <Close onClick={() => setDisplayPolicy(false)}>

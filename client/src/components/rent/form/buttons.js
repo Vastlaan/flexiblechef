@@ -14,7 +14,7 @@ export default function Buttonss({ step, next, previous, intl, setIsChecked }) {
                     />
                     <p>
                         {intl.formatMessage({ id: "rentButtonCheckbox1" })}{" "}
-                        <Link to="/algemene-voorwaarden">
+                        <Link to="/algemene-voorwaarden" target="_blank">
                             {intl.formatMessage({ id: "rentButtonCheckbox2" })}
                         </Link>{" "}
                         {intl.formatMessage({ id: "rentButtonCheckbox3" })}

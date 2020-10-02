@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import { useIntl } from "react-intl";
 //components
@@ -16,14 +16,16 @@ import { respond } from "../../styles";
 
 export default function Landing() {
     const intl = useIntl();
+
     return (
         <Main>
             <BackgroundVideo>
-                <video preload="auto" loop autoPlay>
+                <video preload="auto" loop muted autoPlay={true}>
                     <source
                         src="https://michalantczakblogresources.s3.eu-central-1.amazonaws.com/headerCompressed.mp4"
                         type="video/mp4"
                     />
+                    <p>Your browser does not support the video element.</p>
                 </video>
 
                 <Header />

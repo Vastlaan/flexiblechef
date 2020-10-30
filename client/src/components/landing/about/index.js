@@ -44,6 +44,8 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    ${() => respond("xl", "overflow: initial;")}
 `;
 
 const Image = styled.div`
@@ -61,11 +63,19 @@ const Image = styled.div`
     }
 `;
 const Wave = styled.div`
-    width: 100%;
+    width: 100vw;
     position: absolute;
     bottom: 0;
     left: 0;
     z-index: 3;
+    ${() =>
+        respond(
+            "xl",
+            "transform: translateX(calc((100vw - 1366px) / 2 * -1));"
+        )}
+    svg {
+        width: 100%;
+    }
 `;
 const Text = styled.p`
     text-align: center;

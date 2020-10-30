@@ -51,6 +51,14 @@ export const respond = (type, content) => {
         return `@media only screen and (min-width: 1662px){
     ${content}
   }`;
+    } else if (type === "xl") {
+        return `@media only screen and (min-width: 1367px){
+    ${content}
+  }`;
+    } else if (type === "tv") {
+        return `@media only screen and (min-width: 2556px){
+    ${content}
+  }`;
     }
 };
 

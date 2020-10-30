@@ -77,7 +77,7 @@ const Container = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+
     position: relative;
     ${() => respond("s", "padding: 5rem 2rem;")}
 `;
@@ -87,8 +87,16 @@ const BackgroundImage = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
+    height: 100%;
     z-index: -1;
+    overflow: hidden;
+
+    ${() =>
+        respond(
+            "xl",
+            "transform: translateX(calc((100vw - 1366px) / 2 * -1));"
+        )}
 
     img {
         width: 180%;
@@ -113,6 +121,7 @@ const Quotes = styled.div`
     height: 42rem;
     margin: 0 auto;
     z-index: 5;
+    overflow: hidden;
 `;
 const Text = styled.div`
     width: 100%;

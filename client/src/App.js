@@ -14,6 +14,7 @@ import Gallery from "./components/gallery";
 import Footer from "./components/footer";
 import Cookies from "./components/cookies";
 import Voorwaarden from "./components/voorwaarden";
+import Layout from "./components/layout";
 //styles
 import { lightTheme, darkTheme, respond } from "./styles";
 
@@ -44,20 +45,26 @@ function App() {
                         isDarkTheme={isDarkTheme}
                         setIsDarkTheme={setIsDarkTheme}
                     />
-                    <Switch>
-                        <Route exact={true} path="/" component={Landing} />
-                        <Route exact={true} path="/rentme" component={Rent} />
-                        <Route
-                            exact={true}
-                            path="/gallery"
-                            component={Gallery}
-                        />
-                        <Route
-                            exact={true}
-                            path="/algemene-voorwaarden"
-                            component={Voorwaarden}
-                        />
-                    </Switch>
+                    <Layout>
+                        <Switch>
+                            <Route exact={true} path="/" component={Landing} />
+                            <Route
+                                exact={true}
+                                path="/rentme"
+                                component={Rent}
+                            />
+                            <Route
+                                exact={true}
+                                path="/gallery"
+                                component={Gallery}
+                            />
+                            <Route
+                                exact={true}
+                                path="/algemene-voorwaarden"
+                                component={Voorwaarden}
+                            />
+                        </Switch>
+                    </Layout>
                     <Footer />
                 </Router>
 
@@ -86,6 +93,10 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
 
+    ::-webkit-scrollbar{
+        display:none;
+    }
+
     html{
         font-size: 50%;
         line-height:1.4;
@@ -95,7 +106,8 @@ const GlobalStyles = createGlobalStyle`
         ${(props) => respond("s", `font-size:55%;`)}
         ${(props) => respond("m", `font-size:60%;`)}
         ${(props) => respond("l", `font-size:62.5%;`)}
-        ${(props) => respond("xxl", `font-size:100%;`)}
+        ${(props) => respond("xxl", `font-size:65%;`)}
+        ${(props) => respond("tv", `font-size:100%;`)}
 
     }
     @keyframes slideFromRight{

@@ -72,13 +72,19 @@ export default function Landing() {
 }
 const Main = styled.div`
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: initial;
 `;
 const BackgroundVideo = styled.div`
     position: relative;
     overflow: hidden;
     height: 75vh;
-    width: 100%;
+    width: 100vw;
+
+    ${() =>
+        respond(
+            "xl",
+            "transform: translateX(calc((100vw - 1366px) / 2 * -1));"
+        )}
 
     video {
         position: absolute;
